@@ -142,13 +142,7 @@ class ChatInputToolbar extends StatelessWidget {
                 ),
               ),
               if (showTraillingBeforeSend) ...trailling, 
-              else
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: alwaysShowSend || text.length != 0
-                      ? () => _sendMessage(context, message)
-                      : null,
-                ),
+              
               if (!showTraillingBeforeSend) ...trailling,
             ],
           ),
