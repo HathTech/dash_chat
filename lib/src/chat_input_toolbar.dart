@@ -112,7 +112,17 @@ class ChatInputToolbar extends StatelessWidget {
                       }) =>
                           null,
                       decoration: inputDecoration != null
-                          ? inputDecoration
+                          ? inputDecoration.copyWith(
+                            suffixIcon: sendButtonBuilder(() async {
+                              if (text.length != 0) {
+                                await onSend(message);
+
+                                controller.text = "";
+
+                                onTextChange("");
+                              }
+                            })
+                          )
                           : InputDecoration.collapsed(
                               hintText: "",
                               fillColor: Colors.white,
